@@ -30,7 +30,7 @@ public final class NKLocalized: AnyObject {
   
   public static var bundle: NSBundle = NSBundle.mainBundle()
   
-  public static func localized(string string: String, table: String? = nil) -> String {
+  public static func localized(string: String, table: String? = nil) -> String {
     if let path = self.bundle.pathForResource(self.languageCode, ofType: "lproj"), b = NSBundle(path: path) {
       return b.localizedStringForKey(string, value: nil, table: table)
     }
