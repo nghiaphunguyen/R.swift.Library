@@ -15,7 +15,7 @@ public final class NKLocalized: AnyObject {
     static var languageCodeKey: String {return "nkit_language_code_key"}
   }
   
-  public static var languageCode: String? {
+  public static var currentLanguageCode: String? {
     get {
       return NSUserDefaults.standardUserDefaults().stringForKey(Constant.languageCodeKey)
     }
@@ -31,8 +31,13 @@ public final class NKLocalized: AnyObject {
   public static var bundle: NSBundle = NSBundle.mainBundle()
   
   public static func localized(string: String, table: String? = nil) -> String {
-    if let languageCode = self.languageCode, path = self.bundle.pathForResource(languageCode, ofType: "lproj"), b = NSBundle(path: path) {
-      return b.localizedStringForKey(string, value: nil, table: table)
+    if let languageCode = self.currentLanguageCode, path = self.bundle.pathForResource(languageCode, ofType: "lproj"), b = NSBundle(path: path) {
+      
+      let result = b.localizedStringForKey(string, value: nil, table: table)
+      
+      if result != string || languageCode == "en" {
+        return result
+      }
     }
     
     return NSLocalizedString(string, tableName: table, bundle: self.bundle, value: "", comment: "")
