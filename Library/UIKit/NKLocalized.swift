@@ -31,10 +31,18 @@ public final class NKLocalized: AnyObject {
   public static var bundle: NSBundle = NSBundle.mainBundle()
   
   public static func localized(string: String, table: String? = nil) -> String {
-    if let path = self.bundle.pathForResource(self.languageCode, ofType: "lproj"), b = NSBundle(path: path) {
+    if let languageCode = self.languageCode, path = self.bundle.pathForResource(languageCode, ofType: "lproj"), b = NSBundle(path: path) {
       return b.localizedStringForKey(string, value: nil, table: table)
     }
     
     return NSLocalizedString(string, tableName: table, bundle: self.bundle, value: "", comment: "")
+  }
+  
+  public static func availableLanguages(excludeBase: Bool = true) -> [String] {
+    var availableLanguages = self.bundle.localizations
+    if let indexOfBase = availableLanguages.indexOf("Base") where excludeBase == true {
+      availableLanguages.removeAtIndex(indexOfBase)
+    }
+    return availableLanguages
   }
 }
