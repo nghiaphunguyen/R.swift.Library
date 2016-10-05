@@ -10,10 +10,10 @@ Pod::Spec.new do |spec|
 
                    R.swift is a tool to get strong typed, autocompleted resources like images, fonts and segues in Swift projects.
                    DESC
-  spec.homepage     = "https://github.com/mac-cain13/R.swift.Library"
+  spec.homepage     = "https://github.com/nghiaphunguyen/R.swift.Library"
 
-  spec.author             = { "Mathijs Kadijk" => "mkadijk@gmail.com" }
-  spec.social_media_url   = "https://twitter.com/mac_cain13"
+  spec.author             = { "Nghia Nguyen" => "nghiaphunguyen501@gmail.com" }
+  spec.social_media_url   = "https://twitter.com/nghiaphunguyen"
 
   spec.requires_arc = true
   spec.source          = { :git => "https://github.com/nghiaphunguyen/R.swift.Library", :tag => "v#{spec.version}" }
