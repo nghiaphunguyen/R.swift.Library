@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18B129B41DABFC8400E8C869 /* NKLocalized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B129B31DABFC8400E8C869 /* NKLocalized.swift */; };
 		806E699C1C42BD9C00DE3A8B /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 806E69921C42BD9C00DE3A8B /* Rswift.framework */; };
 		806E69A91C42BDDA00DE3A8B /* FileResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E435AC1C3D00770091090C /* FileResource.swift */; };
 		806E69AA1C42BDDA00DE3A8B /* FontResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E1EB21C3D762300DDA68F /* FontResource.swift */; };
@@ -90,6 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18B129B31DABFC8400E8C869 /* NKLocalized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NKLocalized.swift; sourceTree = "<group>"; };
 		806E69921C42BD9C00DE3A8B /* Rswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rswift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		806E699B1C42BD9C00DE3A8B /* RswiftTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RswiftTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D51335261C959DF20014C9D4 /* StoryboardViewControllerResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardViewControllerResource.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		D543F9C21C14987000D16A0C /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				18B129B31DABFC8400E8C869 /* NKLocalized.swift */,
 				E250BE931CCBCEB100CC71DE /* ColorResource+UIKit.swift */,
 				D5E435A81C3CFB460091090C /* NibResource+UIKit.swift */,
 				D57E1EB81C3E4C1A00DDA68F /* StoryboardResourceWithInitialController+UIKit.swift */,
@@ -479,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B129B41DABFC8400E8C869 /* NKLocalized.swift in Sources */,
 				D543F9CA1C14998800D16A0C /* UIViewController+StoryboardSegueIdentifierProtocol.swift in Sources */,
 				D51335291C95A79B0014C9D4 /* UIStoryboard+StoryboardViewControllerResource.swift in Sources */,
 				D5E435AD1C3D00770091090C /* FileResource.swift in Sources */,
