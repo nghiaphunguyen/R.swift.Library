@@ -17,23 +17,24 @@ public final class NKLocalized: AnyObject {
   
   public static var currentLanguageCode: String? {
     get {
-      return NSUserDefaults.standardUserDefaults().stringForKey(Constant.languageCodeKey)
+      return UserDefaults.standard.string(forKey: Constant.languageCodeKey)
     }
     
     set {
-      NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: Constant.languageCodeKey)
-      NSUserDefaults.standardUserDefaults().synchronize()
+      UserDefaults.standard.set(newValue, forKey: Constant.languageCodeKey)
+      UserDefaults.standard.synchronize()
       
-      NSNotificationCenter.defaultCenter().postNotificationName(kLocalizedChangedNotificationName, object: newValue)
+      NotificationCenter.default.post(name: NSNotification.Name(rawValue: kLocalizedChangedNotificationName), object: newValue)
     }
   }
   
-  public static var bundle: NSBundle = NSBundle.mainBundle()
+  public static var bundle: Bundle = Bundle.main
   
-  public static func localized(string: String, table: String? = nil) -> String {
-    if let languageCode = self.currentLanguageCode, path = self.bundle.pathForResource(languageCode, ofType: "lproj"), b = NSBundle(path: path) {
+  public static func localized(_ string: String, table: String? = nil) -> String {
+    if let languageCode = self.currentLanguageCode, let path = self.bundle.path(forResource: languageCode, ofType: "lproj"), let b = Bundle(path: path) {
       
-      let result = b.localizedStringForKey(string, value: nil, table: table)
+      let
+      result = b.localizedString(forKey: string, value: nil, table: table)
       
       if result != string || languageCode == "en" {
         return result
@@ -43,10 +44,10 @@ public final class NKLocalized: AnyObject {
     return NSLocalizedString(string, tableName: table, bundle: self.bundle, value: "", comment: "")
   }
   
-  public static func availableLanguages(excludeBase: Bool = true) -> [String] {
+  public static func availableLanguages(_ excludeBase: Bool = true) -> [String] {
     var availableLanguages = self.bundle.localizations
-    if let indexOfBase = availableLanguages.indexOf("Base") where excludeBase == true {
-      availableLanguages.removeAtIndex(indexOfBase)
+    if let indexOfBase = availableLanguages.index(of: "Base") , excludeBase == true {
+      availableLanguages.remove(at: indexOfBase)
     }
     return availableLanguages
   }
